@@ -1,6 +1,25 @@
 Rank: 1, Lambda: 0.01, RMSE: 0.863192694238, Tiempo: 1173.0[s]
 Rank: 5, Lambda: 0.01, RMSE: 0.78835564813, Tiempo: 1360.0[s]
 Rank: 10, Lambda: 0.01, RMSE: 0.744204396942, Tiempo: 1304.0[s]
+Rank: 100, Lambda: 0.01, RMSE: 0.486309773673, Tiempo: 1810.0[s]
+
 Rank: 1, Lambda: 0.02, RMSE: 0.863027735704, Tiempo: 1384.0[s]
 Rank: 5, Lambda: 0.02, RMSE: 0.794209183306, Tiempo: 1347.0[s]
 Rank: 10, Lambda: 0.02, RMSE: 0.744331816319, Tiempo: 1365.0[s]
+Rank: 100, Lambda: 0.02, RMSE: 0.521668305065, Tiempo: 1813.0[s]
+
+## PRUEBA DE RENDIMIENTO 1
+
+Rank: 1, Lambda: 0.01, RMSE: 0.892094708517, Tiempo: 1380.0[s]
+Rank: 5, Lambda: 0.01, RMSE: 0.787200866648, Tiempo: 1393.0[s]
+Rank: 10, Lambda: 0.01, RMSE: 0.744876904472, Tiempo: 1301.0[s]
+Rank: 100, Lambda: 0.01, RMSE: 0.486206941967, Tiempo: 1840.0[s]
+
+Rank: 1, Lambda: 0.02, RMSE: 0.864577924781, Tiempo: 1228.0[s]
+Rank: 5, Lambda: 0.02, RMSE: 0.793095667104, Tiempo: 1223.0[s]
+Rank: 10, Lambda: 0.02, RMSE: 0.750553468275, Tiempo: 1235.0[s]
+Rank: 100, Lambda: 0.02, RMSE: 0.523728236607, Tiempo: 1815.0[s]
+
+## PRUEBA DE RENDIMIENTO 2
+
+

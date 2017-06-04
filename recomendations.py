@@ -1,5 +1,5 @@
 import sys, time
-from math import sqrt
+from math import sqrt, ceil
 from pyspark import SparkContext
 from pyspark.mllib.recommendation import ALS, Rating
 # https://spark.apache.org/docs/latest/mllib-collaborative-filtering.html
@@ -40,7 +40,7 @@ MSE  = ratesAndPreds.map(lambda l: (l[1][0] - l[1][1])**2).mean()
 RMSE = sqrt(MSE)
 
 file = open('results.txt', 'w')
-file.write('Rank: ' + str(rank) + ', Lambda: ' + str(lambda_) + ', RMSE: ' + str(RMSE) + ', Tiempo: ' + str(math.ceil(time.time() - start_time)) + '[s]\n')
+file.write('Rank: ' + str(rank) + ', Lambda: ' + str(lambda_) + ', RMSE: ' + str(RMSE) + ', Tiempo: ' + str(ceil(time.time() - start_time)) + '[s]\n')
 file.close()
 
 sc.stop()

@@ -1,0 +1,6 @@
+Rank: 1, Lambda: 0.01, RMSE: 0.863192694238, Tiempo: 1173.0[s]
+Rank: 5, Lambda: 0.01, RMSE: 0.78835564813, Tiempo: 1360.0[s]
+Rank: 10, Lambda: 0.01, RMSE: 0.744204396942, Tiempo: 1304.0[s]
+Rank: 1, Lambda: 0.02, RMSE: 0.863027735704, Tiempo: 1384.0[s]
+Rank: 5, Lambda: 0.02, RMSE: 0.794209183306, Tiempo: 1347.0[s]
+Rank: 10, Lambda: 0.02, RMSE: 0.744331816319, Tiempo: 1365.0[s]

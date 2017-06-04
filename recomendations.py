@@ -39,7 +39,7 @@ ratesAndPreds = ratings.map(lambda l: ((l[0], l[1]), l[2])).join(predictions)
 MSE  = ratesAndPreds.map(lambda l: (l[1][0] - l[1][1])**2).mean()
 RMSE = sqrt(MSE)
 
-file = open('results.txt', 'w')
+file = open('results.txt', 'a')
 file.write('Rank: ' + str(rank) + ', Lambda: ' + str(lambda_) + ', RMSE: ' + str(RMSE) + ', Tiempo: ' + str(ceil(time.time() - start_time)) + '[s]\n')
 file.close()
 

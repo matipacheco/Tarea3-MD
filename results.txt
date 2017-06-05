@@ -22,4 +22,12 @@ Rank: 100, Lambda: 0.02, RMSE: 0.523728236607, Tiempo: 1815.0[s]
 
 ## PRUEBA DE RENDIMIENTO 2
 
+Rank: 1, Lambda: 0.01, RMSE: 0.86484265047, Tiempo: 1206.0[s]
+Rank: 5, Lambda: 0.01, RMSE: 0.788812255961, Tiempo: 1264.0[s]
+Rank: 10, Lambda: 0.01, RMSE: 0.743989837562, Tiempo: 1283.0[s]
+Rank: 100, Lambda: 0.01, RMSE: 0.486584407627, Tiempo: 1800.0[s]
 
+Rank: 1, Lambda: 0.02, RMSE: 1.92052991985, Tiempo: 1225.0[s]
+Rank: 5, Lambda: 0.02, RMSE: 0.782250698573, Tiempo: 1260.0[s]
+Rank: 10, Lambda: 0.02, RMSE: 0.750015548215, Tiempo: 1326.0[s]
+Rank: 100, Lambda: 0.02, RMSE: 0.521965441251, Tiempo: 1946.0[s]

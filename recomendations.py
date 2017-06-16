@@ -14,7 +14,7 @@ start_time = time.time()
 rank    = int(sys.argv[1])
 lambda_ = float(sys.argv[2])
 
-sc 		  = SparkContext("local", "Recomendations")
+sc      = SparkContext("local", "Recomendations")
 movies  = sc.textFile("/home/mati/Documentos/2017-1/DM/Tarea3-MD/ml-10M100K/movies.dat")
 ratings = sc.textFile("/home/mati/Documentos/2017-1/DM/Tarea3-MD/ml-10M100K/ratings.dat")
 
@@ -26,7 +26,7 @@ ratings = ratings.map(lambda l: l.split('::'))\
 					.map(lambda l: Rating(int(l[0]), int(l[1]), float(l[2])))
 
 # classmethod train(ratings, rank, iterations=5, lambda_=0.01, blocks=-1, nonnegative=False, seed=None)
-# Parameters:	ratings - RDD of Rating or (userID, productID, rating) tuple.
+# Parameters: ratings - RDD of Rating or (userID, productID, rating) tuple.
 #             rank    - Rank of the feature matrices computed (number of features).
 #             lambda  - Regularization parameter. (default: 0.01)
 

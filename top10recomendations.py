@@ -22,7 +22,7 @@ movies 	= movies.map(lambda l: l.split('::'))
 ratings = ratings.map(lambda l: l.split('::'))\
 					.map(lambda l: Rating(int(l[0]), int(l[1]), float(l[2])))
 
-model = MatrixFactorizationModel.load(sc, "/usr/local/spark/spark-2.1.1-bin-hadoop2.7/peorModelo/")
+model = MatrixFactorizationModel.load(sc, "path/to/load/model")
 
 # The format of each line is (userID, movieID, rating)
 new_user_ratings1 = [
@@ -50,15 +50,9 @@ new_user_ratings1 = [
 	(1,616,5)]
 
 new_user_ratings_RDD = sc.parallelize(new_user_ratings1)
-#print 'New user ratings: %s' % new_user_ratings_RDD.take(10)
-
-new_user_ratings_ids = map(lambda x: x[1], new_user_ratings1) # get just movie IDs
-# keep just those not on the ID list (thanks Lei Li for spotting the error!)
+new_user_ratings_ids = map(lambda x: x[1], new_user_ratings1)
 new_user_unrated_movies_RDD = (movies.filter(lambda x: x[0] not in new_user_ratings_ids).map(lambda x: (1, x[0])))
-
-# Use the input RDD, new_user_unrated_movies_RDD, with new_ratings_model.predictAll() to predict new ratings for the movies
 new_user_recommendations_RDD = model.predictAll(new_user_unrated_movies_RDD)
-
 top_recomendations = new_user_recommendations_RDD.filter(lambda r: r[2]>=0).takeOrdered(10, key=lambda x: -x[2])
 print 'Top 10 recomendations userID 1: %s' % top_recomendations
 
@@ -85,15 +79,9 @@ new_user_ratings2 = [
 	(2,1544,3)]
 
 new_user_ratings_RDD = sc.parallelize(new_user_ratings2)
-#print 'New user ratings: %s' % new_user_ratings_RDD.take(10)
-
-new_user_ratings_ids = map(lambda x: x[1], new_user_ratings2) # get just movie IDs
-# keep just those not on the ID list (thanks Lei Li for spotting the error!)
+new_user_ratings_ids = map(lambda x: x[1], new_user_ratings2)
 new_user_unrated_movies_RDD = (movies.filter(lambda x: x[0] not in new_user_ratings_ids).map(lambda x: (2, x[0])))
-
-# Use the input RDD, new_user_unrated_movies_RDD, with new_ratings_model.predictAll() to predict new ratings for the movies
 new_user_recommendations_RDD = model.predictAll(new_user_unrated_movies_RDD)
-
 top_recomendations = new_user_recommendations_RDD.filter(lambda r: r[2]>=0).takeOrdered(10, key=lambda x: -x[2])
 print 'Top 10 recomendations userID 2: %s' % top_recomendations
 
@@ -133,15 +121,9 @@ new_user_ratings3 = [
 	(3,33750,3.5)]
 
 new_user_ratings_RDD = sc.parallelize(new_user_ratings3)
-#print 'New user ratings: %s' % new_user_ratings_RDD.take(10)
-
-new_user_ratings_ids = map(lambda x: x[1], new_user_ratings3) # get just movie IDs
-# keep just those not on the ID list (thanks Lei Li for spotting the error!)
+new_user_ratings_ids = map(lambda x: x[1], new_user_ratings3)
 new_user_unrated_movies_RDD = (movies.filter(lambda x: x[0] not in new_user_ratings_ids).map(lambda x: (3, x[0])))
-
-# Use the input RDD, new_user_unrated_movies_RDD, with new_ratings_model.predictAll() to predict new ratings for the movies
 new_user_recommendations_RDD = model.predictAll(new_user_unrated_movies_RDD)
-
 top_recomendations = new_user_recommendations_RDD.filter(lambda r: r[2]>=0).takeOrdered(10, key=lambda x: -x[2])
 print 'Top 10 recomendations userID 3: %s' % top_recomendations
 
@@ -186,15 +168,9 @@ new_user_ratings4 = [
 	(4,597,3)]
 
 new_user_ratings_RDD = sc.parallelize(new_user_ratings4)
-#print 'New user ratings: %s' % new_user_ratings_RDD.take(10)
-
-new_user_ratings_ids = map(lambda x: x[1], new_user_ratings4) # get just movie IDs
-# keep just those not on the ID list (thanks Lei Li for spotting the error!)
+new_user_ratings_ids = map(lambda x: x[1], new_user_ratings4)
 new_user_unrated_movies_RDD = (movies.filter(lambda x: x[0] not in new_user_ratings_ids).map(lambda x: (4, x[0])))
-
-# Use the input RDD, new_user_unrated_movies_RDD, with new_ratings_model.predictAll() to predict new ratings for the movies
 new_user_recommendations_RDD = model.predictAll(new_user_unrated_movies_RDD)
-
 top_recomendations = new_user_recommendations_RDD.filter(lambda r: r[2]>=0).takeOrdered(10, key=lambda x: -x[2])
 print 'Top 10 recomendations userID 4: %s' % top_recomendations
 
@@ -288,15 +264,9 @@ new_user_ratings5 = [
 	(5,1391,1)]
 
 new_user_ratings_RDD = sc.parallelize(new_user_ratings5)
-#print 'New user ratings: %s' % new_user_ratings_RDD.take(10)
-
-new_user_ratings_ids = map(lambda x: x[1], new_user_ratings5) # get just movie IDs
-# keep just those not on the ID list (thanks Lei Li for spotting the error!)
+new_user_ratings_ids = map(lambda x: x[1], new_user_ratings5)
 new_user_unrated_movies_RDD = (movies.filter(lambda x: x[0] not in new_user_ratings_ids).map(lambda x: (5, x[0])))
-
-# Use the input RDD, new_user_unrated_movies_RDD, with new_ratings_model.predictAll() to predict new ratings for the movies
 new_user_recommendations_RDD = model.predictAll(new_user_unrated_movies_RDD)
-
 top_recomendations = new_user_recommendations_RDD.filter(lambda r: r[2]>=0).takeOrdered(10, key=lambda x: -x[2])
 print 'Top 10 recomendations userID 5: %s' % top_recomendations
 

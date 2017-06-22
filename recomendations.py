@@ -1,4 +1,4 @@
-import sys, time
+import sys, time, os, tempfile
 from math import sqrt, ceil
 from pyspark import SparkContext
 from pyspark.mllib.recommendation import ALS, Rating
@@ -15,8 +15,8 @@ rank    = int(sys.argv[1])
 lambda_ = float(sys.argv[2])
 
 sc      = SparkContext("local", "Recomendations")
-movies  = sc.textFile("/home/mati/Documentos/2017-1/DM/Tarea3-MD/ml-10M100K/movies.dat")
-ratings = sc.textFile("/home/mati/Documentos/2017-1/DM/Tarea3-MD/ml-10M100K/ratings.dat")
+movies  = sc.textFile("/path/to/movies.dat")
+ratings = sc.textFile("/path/to/ratings.dat")
 
 # movies.dat  --> MovieID::Title::Genres.
 # ratings.dat --> UserID::MovieID::Rating::Timestamp
@@ -38,6 +38,8 @@ ratesAndPreds = ratings.map(lambda l: ((l[0], l[1]), l[2])).join(predictions)
 
 MSE  = ratesAndPreds.map(lambda l: (l[1][0] - l[1][1])**2).mean()
 RMSE = sqrt(MSE)
+
+model.save(sc, "/path/to/save/model")
 
 file = open('results.txt', 'a')
 file.write('Rank: ' + str(rank) + ', Lambda: ' + str(lambda_) + ', RMSE: ' + str(RMSE) + ', Tiempo: ' + str(ceil(time.time() - start_time)) + '[s]\n')
